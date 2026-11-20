@@ -8,6 +8,7 @@ import com.sravani.chat.domain.Chat;
 import com.sravani.chat.domain.Message;
 import com.sravani.chat.error.ForbiddenException;
 import com.sravani.chat.repository.MessageRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ public class MessageService {
     private final UserService userService;
     private final Clock clock;
 
+    @Autowired
     public MessageService(MessageRepository messages, ChatService chatService, UserService userService) {
         this(messages, chatService, userService, Clock.systemUTC());
     }
